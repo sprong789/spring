@@ -28,6 +28,7 @@ public class CatController {
 	@RequestMapping("/likeName")
 	public List<Cat> likeName(String name){
 		PageHelper.startPage(1, 1);
+		System.out.println("");
 		return catService.likeName(name);
 	}
 	
