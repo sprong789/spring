@@ -16,45 +16,75 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  	<!--java.version 指定jdk版本号：  -->
+	<java.version>1.8</java.version>
   </properties>
 
   <dependencies>
-  	<dependency>
-		<groupId>org.springframework</groupId>
-		<artifactId>spring-webmvc</artifactId>
-		<version>4.3.7.RELEASE</version>
-	</dependency>
-	<!-- 连接池 -->
-	<dependency>
-		<groupId>com.jolbox</groupId>
-		<artifactId>bonecp-spring</artifactId>
-		<version>0.8.0.RELEASE</version>
-	</dependency>
 	<dependency>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-web</artifactId>
 	</dependency>
-	<!-- Mybatis -->
+	<!-- 监控生产管理依赖 -->
 	<dependency>
-		<groupId>org.mybatis</groupId>
-		<artifactId>mybatis</artifactId>
-		<version>3.2.8</version>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-actuator</artifactId>
 	</dependency>
 	<dependency>
-		<groupId>org.mybatis</groupId>
-		<artifactId>mybatis-spring</artifactId>
-		<version>1.2.2</version>
+		<groupId>javax.servlet</groupId>
+		<artifactId>javax.servlet-api</artifactId>
+		<scope>provided</scope>
+	</dependency>
+	<!-- JSP相关 -->
+	<dependency>
+		<groupId>javax.servlet</groupId>
+		<artifactId>jstl</artifactId>
+	</dependency>
+	<!-- 添加fastJson依赖包 -->
+  	<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.15</version>
+	</dependency>
+	<!-- tomcat 的支持.-->
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-tomcat</artifactId>
+		<scope>provided</scope>
+	</dependency>
+	<dependency>
+		<groupId>org.apache.tomcat.embed</groupId>
+		<artifactId>tomcat-embed-jasper</artifactId>
+		<scope>provided</scope>
+	</dependency>
+	<!-- mysql -->
+	<dependency>
+		<groupId>mysql</groupId>
+		<artifactId>mysql-connector-java</artifactId>
+		<version>8.0.11</version>
+	</dependency>
+	<!-- Mybatis -->
+	<dependency>
+	    <groupId>org.mybatis.spring.boot</groupId>
+	    <artifactId>mybatis-spring-boot-starter</artifactId>
+	    <version>1.3.2</version>
 	</dependency>
 	<!-- 分页助手 -->
 	<dependency>
-		<groupId>com.github.pagehelper</groupId>
-		<artifactId>pagehelper</artifactId>
-		<version>3.7.5</version>
+	    <groupId>com.github.pagehelper</groupId>
+	    <artifactId>pagehelper</artifactId>
+	    <version>4.1.0</version>
 	</dependency>
 	<dependency>
 		<groupId>com.github.jsqlparser</groupId>
 		<artifactId>jsqlparser</artifactId>
 		<version>0.9.1</version>
+	</dependency>
+	<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
+           <scope>true</scope>
 	</dependency>
 	<!-- 通用Mapper -->
 	<dependency>
@@ -62,22 +92,10 @@
 		<artifactId>mapper</artifactId>
 		<version>2.3.4</version>
 	</dependency>
-	<!-- MySql -->
-	<dependency>
-		<groupId>mysql</groupId>
-		<artifactId>mysql-connector-java</artifactId>
-	</dependency>
 	<!-- httpclient -->
 	<dependency>
 		<groupId>org.apache.httpcomponents</groupId>
 		<artifactId>httpclient</artifactId>
-	</dependency>
-
-	<!-- JSP相关 -->
-	<dependency>
-		<groupId>jstl</groupId>
-		<artifactId>jstl</artifactId>
-		<version>1.2</version>
 	</dependency>
 
 	<!-- Apache工具组件 -->
@@ -120,52 +138,4 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
-  
-  
-  
-  <build>
-	<finalName>${project.artifactId}</finalName>
-	<plugins>
-		<!-- 资源文件拷贝插件 -->
-		<plugin>
-			<groupId>org.apache.maven.plugins</groupId>
-			<artifactId>maven-resources-plugin</artifactId>
-			<configuration>
-				<encoding>UTF-8</encoding>
-			</configuration>
-		</plugin>
-		<!-- java编译插件 -->
-		<plugin>
-			<groupId>org.apache.maven.plugins</groupId>
-			<artifactId>maven-compiler-plugin</artifactId>
-			<configuration>
-				<source>1.7</source>
-				<target>1.7</target>
-				<encoding>UTF-8</encoding>
-			</configuration>
-		</plugin>
-		<plugin>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-maven-plugin</artifactId>
-		</plugin>
-	</plugins>
-	<pluginManagement>
-		<plugins>
-			<!-- 配置Tomcat插件 -->
-			<plugin>
-				<groupId>org.apache.tomcat.maven</groupId>
-				<artifactId>tomcat7-maven-plugin</artifactId>
-				<version>2.2</version>
-			</plugin>
-			<plugin>
-			    <groupId>org.apache.maven.plugins</groupId>
-			    <artifactId>maven-war-plugin</artifactId>
-			    <version>2.6</version>
-			    <configuration>
-			     <failOnMissingWebXml>false</failOnMissingWebXml>
-			    </configuration>
-			   </plugin>
-		</plugins>
-	</pluginManagement>
-</build>
 </project>
