@@ -1,7 +1,12 @@
 package com.school.book.vo;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Cat {
 	
+	@Id
 	private int id;
 	
 	private String name;

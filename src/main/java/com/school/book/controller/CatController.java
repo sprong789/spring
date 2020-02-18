@@ -21,6 +21,10 @@ public class CatController {
 	
 	@RequestMapping("/likeNameCat")
 	public List<Cat> likeNameCat(String name){
+		/**
+		 * 第一个参数第几页
+		 * 第二个参数 每页获取的条数
+		 */
 		PageHelper.startPage(1, 1);
 		return catService.likeName(name);
 	}
@@ -60,6 +64,11 @@ public class CatController {
 	
 	@RequestMapping("/getall")
 	public ModelAndView getall(Model model) {
+		/**
+		 * 第一个参数第几页
+		 * 第二个参数 每页获取的条数
+		 */
+		PageHelper.startPage(1, 1);
 		List<Cat> all = catService.getall();	
 		ModelAndView rm = new ModelAndView();
 		rm.setViewName("jsp/cat");
