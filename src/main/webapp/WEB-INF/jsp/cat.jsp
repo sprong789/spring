@@ -21,7 +21,7 @@
 		<tr>
 			<td>${Mycat.id}</td>
 			<td>${Mycat.name}</td>
-			<td>${Mycat.cat_age}</td>
+			<td>${Mycat.catAge}</td>
 		</tr>
 	</c:forEach>
 	</tbody>

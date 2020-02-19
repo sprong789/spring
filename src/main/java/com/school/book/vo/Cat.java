@@ -11,7 +11,7 @@ public class Cat {
 	
 	private String name;
 	
-	private int cat_age;
+	private int catAge;
 	
 	public int getId() {
 		return id;
@@ -25,11 +25,12 @@ public class Cat {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getCat_age() {
-		return cat_age;
+	public int getCatAge() {
+		return catAge;
 	}
-	public void setCat_age(int cat_age) {
-		this.cat_age = cat_age;
+	public void setCatAge(int catAge) {
+		this.catAge = catAge;
 	}
+
 	
 }

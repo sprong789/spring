@@ -8,8 +8,6 @@ import org.apache.ibatis.annotations.Select;
 
 import com.school.book.vo.Cat;
 
-
-
 public interface CatMapper {
 	
 	@Select("select * from Cat where name = #{name}")
@@ -21,7 +19,7 @@ public interface CatMapper {
 	@Select("select name from Cat where id = #{id}")
 	public String getName(int id);
 	
-	@Insert("insert into Cat(name,catAge) values(#{name},#{cat_age})")
+	@Insert("insert into Cat(name,catAge) values(#{name},#{catAge})")
 	@Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "id")
 	int save(Cat cat);
 	

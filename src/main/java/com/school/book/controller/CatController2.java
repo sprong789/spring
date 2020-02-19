@@ -9,15 +9,15 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.github.pagehelper.PageHelper;
-import com.school.book.server.CatService;
+import com.school.book.server.CatService2;
 import com.school.book.vo.Cat;
 
 @RestController
-@RequestMapping("/cat")
-public class CatController {
+@RequestMapping("/cat2")
+public class CatController2 {
 
 	@Autowired
-	private CatService catService;
+	private CatService2 catService;
 	
 	@RequestMapping("/likeNameCat")
 	public List<Cat> likeNameCat(String name){
@@ -68,7 +68,7 @@ public class CatController {
 		 * 第一个参数第几页
 		 * 第二个参数 每页获取的条数
 		 */
-		PageHelper.startPage(1, 1);
+		PageHelper.startPage(1, 5);
 		List<Cat> all = catService.getall();	
 		ModelAndView rm = new ModelAndView();
 		rm.setViewName("jsp/cat");

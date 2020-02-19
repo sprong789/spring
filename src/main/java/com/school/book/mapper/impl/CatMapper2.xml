@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--化验结果表-->
+<mapper namespace="com.school.book.mapper.CatMapper2">
+
+	<insert id='save' useGeneratedKeys="true"  keyProperty="id" keyColumn="id" parameterType="com.school.book.vo.Cat">
+		insert into Cat(name,catAge) values(#{name},#{catAge})
+	</insert>
+	
+	<select id="getByID" parameterType="int" resultType="com.school.book.vo.Cat">
+		select * from Cat where id = #{id}
+	</select>
+	
+	<select id="getName" parameterType="int" resultType="com.school.book.vo.Cat">
+		select name from Cat where id = #{id}
+	</select>
+	
+	<select id="likeName" parameterType="String" resultType="map">
+		select * from Cat where name = #{name}
+	</select>
+	
+	<select id="getAll" resultType="map">
+		select * from Cat
+	</select>
+</mapper>
