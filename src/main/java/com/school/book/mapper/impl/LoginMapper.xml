@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--用户账号表-->
+<mapper namespace="com.school.book.mapper.LoginMapper">
+
+	<insert id='save' useGeneratedKeys="true"  keyProperty="userId" keyColumn="user_id" parameterType="com.school.book.vo.UserAccount">
+		insert into porject_user_login_info(user_login_name,user_login_password,add_time,updete_time,s_flag,ipadress) values(#{userLoginName},#{userLoginPassword},#{addTime},#{updateTime},#{sFlag},#{ipadress})
+	</insert>
+	
+	<select id="getByUserName" parameterType="String" resultType="com.school.book.vo.UserAccount">
+		select * from porject_user_login_info 
+		<where>
+			user_login_name = #{name}
+		</where>
+	</select>
+	
+	<select id="login" parameterType="String" resultType="com.school.book.vo.UserAccount">
+		select * from porject_user_login_info 
+		<where>
+			user_login_name = #{name} and user_login_password = #{password}
+		</where>
+	</select>
+</mapper>
